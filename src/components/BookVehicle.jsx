@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 import Loader from "./Loader";
+import { FaBook } from "react-icons/fa";
 
 const BookVehicle = ({ vehicleId, setSelectedVehicle, onSuccess }) => {
   const [fromPincode, setFromPincode] = useState("");
@@ -37,71 +38,70 @@ const BookVehicle = ({ vehicleId, setSelectedVehicle, onSuccess }) => {
   return (
     <form onSubmit={handleSubmit} className="space-y-4">
       <div>
-        <label className="block text-sm font-medium text-gray-700">
+        <label className="block text-sm font-medium text-gray-300">
           From Pincode
         </label>
         <input
           type="text"
           value={fromPincode}
           onChange={(e) => setFromPincode(e.target.value)}
-          className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring focus:ring-blue-500 focus:ring-opacity-50"
+          className="mt-1 block w-full p-2 rounded-md bg-gray-800 border-gray-600 text-white shadow-sm focus-ring-orange transition-colors"
           placeholder="e.g., 100001"
-          required
         />
       </div>
       <div>
-        <label className="block text-sm font-medium text-gray-700">
+        <label className="block text-sm font-medium text-gray-300">
           To Pincode
         </label>
         <input
           type="text"
           value={toPincode}
           onChange={(e) => setToPincode(e.target.value)}
-          className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring focus:ring-blue-500 focus:ring-opacity-50"
+          className="mt-1 block w-full p-2 rounded-md bg-gray-800 border-gray-600 text-white shadow-sm focus-ring-orange transition-colors"
           placeholder="e.g., 100010"
-          required
         />
       </div>
       <div>
-        <label className="block text-sm font-medium text-gray-700">
+        <label className="block text-sm font-medium text-gray-300">
           Start Time
         </label>
         <input
           type="datetime-local"
           value={startTime}
           onChange={(e) => setStartTime(e.target.value)}
-          className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring focus:ring-blue-500 focus:ring-opacity-50"
-          required
+          className="mt-1 block w-full p-2 rounded-md bg-gray-800 border-gray-600 text-white shadow-sm focus-ring-orange transition-colors"
         />
       </div>
       <div>
-        <label className="block text-sm font-medium text-gray-700">
+        <label className="block text-sm font-medium text-gray-300">
           Customer ID
         </label>
         <input
           type="text"
           value={customerId}
           onChange={(e) => setCustomerId(e.target.value)}
-          className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring focus:ring-blue-500 focus:ring-opacity-50"
+          className="mt-1 block w-full p-2 rounded-md bg-gray-800 border-gray-600 text-white shadow-sm focus-ring-orange transition-colors"
           placeholder="e.g., cust123"
-          required
         />
       </div>
-      {error && <p className="text-red-500 text-sm">{error}</p>}
-      {success && <p className="text-green-500 text-sm">{success}</p>}
+      {error && <p className="text-red-500 text-sm animate-fadeIn">{error}</p>}
+      {success && (
+        <p className="text-green-500 text-sm animate-fadeIn">{success}</p>
+      )}
       {loading && <Loader />}
       <div className="flex gap-4">
         <button
           type="submit"
-          className="flex-1 bg-blue-600 text-white py-2 px-4 rounded-md hover:bg-blue-700 transition-colors"
+          className="flex-1 bg-orange text-white py-2 px-4 rounded-md bg-orange-hover transition-colors shadow-md hover:shadow-lg flex items-center justify-center"
           disabled={loading}
         >
+          <FaBook className="mr-2" />
           Confirm Booking
         </button>
         <button
           type="button"
           onClick={() => setSelectedVehicle(null)}
-          className="flex-1 bg-gray-300 text-gray-800 py-2 px-4 rounded-md hover:bg-gray-400 transition-colors"
+          className="flex-1 bg-gray-600 text-white py-2 px-4 rounded-md hover:bg-gray-700 transition-colors shadow-md hover:shadow-lg"
         >
           Cancel
         </button>

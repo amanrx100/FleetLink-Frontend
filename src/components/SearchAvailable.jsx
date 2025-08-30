@@ -32,53 +32,55 @@ const SearchAvailable = ({ setResults }) => {
   return (
     <form onSubmit={handleSubmit} className="space-y-4">
       <div>
-        <label className="block text-sm font-medium text-gray-700">
+        <label className="block text-sm font-medium text-gray-300">
           Required Capacity (kg)
         </label>
         <input
           type="number"
           value={capacityRequired}
           onChange={(e) => setCapacityRequired(e.target.value)}
-          className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring focus:ring-blue-500 focus:ring-opacity-50"
+          className="block p-2 w-full mt-1 rounded-md bg-gray-800 border-gray-600 text-white shadow-sm focus-ring-orange transition-colors"
           placeholder="e.g., 500"
           required
         />
       </div>
-      <div>
-        <label className="block text-sm font-medium text-gray-700">
-          From Pincode
-        </label>
-        <input
-          type="text"
-          value={fromPincode}
-          onChange={(e) => setFromPincode(e.target.value)}
-          className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring focus:ring-blue-500 focus:ring-opacity-50"
-          placeholder="e.g., 100001"
-          required
-        />
+      <div className="flex gap-3">
+        <div className="w-100">
+          <label className="block  text-sm font-medium text-gray-300">
+            From Pincode
+          </label>
+          <input
+            type="text"
+            value={fromPincode}
+            onChange={(e) => setFromPincode(e.target.value)}
+            className="block p-2 w-full mt-1 rounded-md bg-gray-800 border-gray-600 text-white shadow-sm focus-ring-orange transition-colors"
+            placeholder="e.g., 100001"
+            required
+          />
+        </div>
+        <div className="w-100">
+          <label className="block text-sm font-medium text-gray-300">
+            To Pincode
+          </label>
+          <input
+            type="text"
+            value={toPincode}
+            onChange={(e) => setToPincode(e.target.value)}
+            className="block p-2 w-full mt-1 rounded-md bg-gray-800 border-gray-600 text-white shadow-sm focus-ring-orange transition-colors"
+            placeholder="e.g., 100010"
+            required
+          />
+        </div>
       </div>
       <div>
-        <label className="block text-sm font-medium text-gray-700">
-          To Pincode
-        </label>
-        <input
-          type="text"
-          value={toPincode}
-          onChange={(e) => setToPincode(e.target.value)}
-          className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring focus:ring-blue-500 focus:ring-opacity-50"
-          placeholder="e.g., 100010"
-          required
-        />
-      </div>
-      <div>
-        <label className="block text-sm font-medium text-gray-700">
+        <label className="block text-sm font-medium text-gray-300">
           Start Time
         </label>
         <input
           type="datetime-local"
           value={startTime}
           onChange={(e) => setStartTime(e.target.value)}
-          className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring focus:ring-blue-500 focus:ring-opacity-50"
+          className="block p-2 w-full mt-1 rounded-md bg-gray-800 border-gray-600 text-white shadow-sm focus-ring-orange transition-colors"
           required
         />
       </div>
@@ -86,7 +88,7 @@ const SearchAvailable = ({ setResults }) => {
       {loading && <Loader />}
       <button
         type="submit"
-        className="w-full bg-blue-600 text-white py-2 px-4 rounded-md hover:bg-blue-700 transition-colors"
+        className="w-full bg-orange text-white py-2 px-4 rounded-md bg-orange-hover transition-colors shadow-md hover:shadow-lg"
         disabled={loading}
       >
         Search Vehicles
